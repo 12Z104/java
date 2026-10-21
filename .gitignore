@@ -1,0 +1,41 @@
+# ===== VS Code =====
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# ===== Java / Maven =====
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+.mvn-dist/
+.mvn/wrapper/maven-wrapper.jar
+
+# ===== Spring Boot =====
+.mvn/timing.properties
+
+# ===== IDE =====
+.idea/
+*.iws
+*.iml
+*.ipr
+.settings/
+.classpath
+.project
+bin/
+out/
+*.log
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ===== 运行时数据（爬虫产物、会话缓存） =====
+data/
+logs/
+*.pid
+
+# ===== 环境密钥（切勿提交） =====
+.env
+application-local.yml

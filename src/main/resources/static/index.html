@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农作物缺素症识别与科学施肥建议智能体</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">
+        <h1>🌾 农作物缺素症识别与科学施肥建议智能体</h1>
+        <p>RAG 本地知识库 · 多轮对话记忆 · 科学施肥建议 · 课程思政融入</p>
+    </div>
+    <div class="top-actions">
+        <span id="kbStat" class="badge">知识库加载中…</span>
+        <button id="newSessionBtn" class="btn-ghost" type="button">新会话</button>
+    </div>
+</header>
+
+<main class="layout">
+    <section class="chat-panel">
+        <div id="messages" class="messages"></div>
+        <form id="chatForm" class="composer" autocomplete="off">
+            <div class="field-row">
+                <label>作物
+                    <select id="crop">
+                        <option value="">自动识别 / 不限</option>
+                        <option>水稻</option><option>小麦</option><option>玉米</option>
+                        <option>大豆</option><option>油菜</option><option>番茄</option>
+                        <option>黄瓜</option><option>辣椒</option><option>茄子</option>
+                        <option>白菜</option><option>苹果</option><option>柑橘</option>
+                        <option>葡萄</option><option>香蕉</option><option>桃树</option>
+                        <option>梨树</option><option>草莓</option><option>马铃薯</option>
+                    </select>
+                </label>
+                <label>症状部位
+                    <select id="part">
+                        <option value="">自动识别 / 不限</option>
+                        <option>老叶</option><option>新叶</option><option>幼叶</option>
+                        <option>叶脉间</option><option>叶缘</option><option>叶尖</option>
+                        <option>顶芽</option><option>茎秆</option><option>根系</option>
+                        <option>果实</option><option>整株</option><option>幼苗</option>
+                    </select>
+                </label>
+                <label>环境描述
+                    <input id="environment" placeholder="如：沙土、干旱、碱性土、涝渍">
+                </label>
+            </div>
+            <div class="input-row">
+                <textarea id="message" rows="2"
+                    placeholder="描述作物缺素症状，例如：水稻，叶片从下部老叶开始均匀发黄，植株矮小，分蘖减少。"></textarea>
+                <button type="submit" id="sendBtn">识别诊断</button>
+            </div>
+            <div class="quick-row">
+                <button type="button" class="chip" data-example="水稻，叶片从下部老叶开始均匀发黄，植株矮小，分蘖减少。">示例：水稻缺氮</button>
+                <button type="button" class="chip" data-example="番茄，新叶卷曲，生长点坏死，果实脐部出现暗斑。">示例：番茄缺钙</button>
+                <button type="button" class="chip" data-example="玉米，新叶基部失绿出现黄白色条纹，植株矮小。">示例：玉米缺锌</button>
+            </div>
+        </form>
+    </section>
+
+    <aside class="detail-panel">
+        <h2>诊断详情</h2>
+        <div id="detail" class="detail-body">
+            <p class="placeholder">识别结果将在这里结构化展示。</p>
+        </div>
+    </aside>
+</main>
+
+<footer class="foot">
+    OHCP 一小时智能编程大赛 · SpringBoot + SpringAI + LangChain4j · 核心识别依赖自建爬虫本地知识库
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

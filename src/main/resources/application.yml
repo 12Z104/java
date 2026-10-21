@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ohcp-deficiency-agent
+  ai:
+    openai:
+      # 可选：配置后由大模型润色诊断说明；不配置则自动降级为知识库模板输出
+      api-key: ${OPENAI_API_KEY:}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+      chat:
+        options:
+          model: ${OPENAI_MODEL:gpt-4o-mini}
+
+langchain4j:
+  open-ai:
+    chat-model:
+      # 可选：LangChain4j 智能体框架的模型接入（与 SpringAI 可二选一，均可省略）
+      api-key: ${OPENAI_API_KEY:}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
+      model-name: ${OPENAI_MODEL:gpt-4o-mini}
+
+ohcp:
+  crawler:
+    # 启动时是否自动触发一次爬虫更新（离线环境下会静默回退到内置种子知识库）
+    auto-run: true
+    timeout-seconds: 12
+  knowledge:
+    seed-location: classpath:knowledge.json
+    runtime-dir: data
+
+logging:
+  level:
+    com.ohcp.agent: INFO
